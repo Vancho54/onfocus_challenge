@@ -4,14 +4,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export const TaskSlice = createSlice({
     name:'task',
     initialState: {
-        currentTask: {},
+        page: 1,
+        take: 6,
         data: []
     },
     reducers: {
-
-        choseCurrentTask: (state, action) => {
-            state.currentTask = action.payload
-        },
 
         setData: (state, action) => {
             state.data = action.payload
@@ -36,10 +33,18 @@ export const TaskSlice = createSlice({
                 d.id !== action.payload
             ))
         },
+
+        upPage: (state) => {
+            state.page = state.page + 1 
+        },
+
+        downPage: (state) => {
+            state.page = state.page - 1
+        }
     }
 })
 
-export const selectTask = (state) => state.task.data;
+export const selectTask = (state) => state.task;
 
-export const { setData, changeTaskState, deleteTask, addTask, choseCurrentTask, editTask } = TaskSlice.actions;
+export const { setData, changeTaskState, deleteTask, addTask, editTask, downPage, upPage } = TaskSlice.actions;
 export default TaskSlice.reducer;

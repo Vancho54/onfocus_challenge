@@ -16,7 +16,7 @@ const AddTask = () => {
     const [newTask, setNewTask] = useState({
         title: '',
         completed: false,
-        id: ''
+        id: uuidv4()
     })
 
     const { title } = newTask;
@@ -30,15 +30,12 @@ const AddTask = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-            setNewTask({
-                ...newTask,
-                id: uuidv4()
-            })
-            taskActions.addTask(newTask)
-            setNewTask({
-                title: '',
-                id: ''
-            })
+        taskActions.addTask(newTask)
+        setNewTask({
+            title: '',
+            id: uuidv4(),
+            completed: false
+        })
     }
 
 
@@ -51,14 +48,14 @@ const AddTask = () => {
                         <FormControl className='formBox'>
                             <TextField 
                                 name='title'
-                                label='title'
+                                label='Title'
                                 type='text'
                                 onChange={handleChange}
                                 value={title}
                             />
                         </FormControl>
                         <FormControl>
-                            <Button type='submit' color='primary' variant='contained'>Add new task</Button>
+                            <Button className='button' type='submit' variant='contained'>Add new task</Button>
                         </FormControl>
                     </form>
                 </CardContent>
@@ -66,14 +63,22 @@ const AddTask = () => {
             <style jsx>
                 {`
                     .container {
+                        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+                        border-radius: 2rem;
+                        z-index: 2;
+                        backdrop-filter: blur(2rem);
                         display: flex;
-                        margin: 20px
                     }
 
                     .button {
                         display: flex;
                         text-align: justify;
+                        align-content: center;
                         margin: 0px 15px 0px 15px;
+                        box-sizing: border-box;
+                        background: linear-gradient(to right top, rgb(109, 218, 226, 0.7), rgb(109, 218, 226, 0.3));
+                        border: none;
+                        border-radius: 0.5rem;
                     }
 
                     .formBox {

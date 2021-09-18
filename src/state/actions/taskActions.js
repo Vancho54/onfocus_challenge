@@ -4,10 +4,6 @@ import Store from '../store';
 
 const taskActions = {
 
-    choseCurrentTask: (current) => {
-        Store.dispatch(task.choseCurrentTask(current))
-    },
-
     editTask: (editedTask) => {
         Store.dispatch(task.editTask(editedTask))
     },
@@ -26,6 +22,14 @@ const taskActions = {
 
     changeTaskState: (taskId) => {
         Store.dispatch(task.changeTaskState(taskId))
+    },
+
+    upPage: () => {
+        Store.dispatch(task.upPage())
+    },
+
+    downPage: () => {
+        Store.dispatch(task.downPage())
     }
 }
 
