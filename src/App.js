@@ -1,6 +1,6 @@
 import './App.css';
 import { Login } from './components/auth/Login';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import PrivateRoute from './components/routes/PrivateRoute';
 import Tasks from './components/tasks/Tasks';
 
