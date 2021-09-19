@@ -1,5 +1,6 @@
 # On Focus Challenge
 The user to access the todo list is jason@test.doe and the password is topsecret
+If you want to try the project on local you must add the env variables, you can check de env.example for more info
 
 
 ## Available Scripts
