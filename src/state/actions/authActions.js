@@ -3,8 +3,8 @@ import Store from '../store';
 
 const authActions = {
 
-    setToken: (token) => {
-        Store.dispatch(auth.setToken(token))
+    setToken: () => {
+        Store.dispatch(auth.login())
     }
 }
 

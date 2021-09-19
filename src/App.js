@@ -1,7 +1,8 @@
 import './App.css';
-import { Login } from './components/auth/login';
+import { Login } from './components/auth/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Tasks } from './components/tasks/tasks';
+import PrivateRoute from './components/routes/PrivateRoute';
+import Tasks from './components/tasks/Tasks';
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path='/' component={Login} />
-        <Route exact path='/tasks' component={Tasks}/>
+        <PrivateRoute exact path='/tasks' component={Tasks}/>
       </Switch>
     </Router>
   );

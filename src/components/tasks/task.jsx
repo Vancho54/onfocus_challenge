@@ -1,10 +1,10 @@
 import { CheckBoxOutlineBlankOutlined, CheckBoxOutlined, DeleteOutlined, EditOutlined } from '@material-ui/icons';
 import taskActions from '../../state/actions/taskActions';
-import { Modal, Box } from '@material-ui/core'
+import { Modal } from '@material-ui/core'
 import { useState } from 'react';
-import EditTask from './editTask'
+import EditTask from './EditTask'
 
-export const Task = ({task}) => {
+const Task = ({task}) => {
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
@@ -41,7 +41,8 @@ export const Task = ({task}) => {
                         display: flex;
                         padding: 0px 30px 0px 15px;
                         margin: 5px 0px 0px 0px;
-                        max-width: 500px;
+                        width: 500px;
+                        height: 80px;
                         background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
                         border-radius: 1rem;
                         backdrop-filter: blur(2rem);
@@ -61,3 +62,5 @@ export const Task = ({task}) => {
         </div>
     )
 }
+
+export default Task;

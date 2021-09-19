@@ -35,11 +35,14 @@ export const TaskSlice = createSlice({
         },
 
         upPage: (state) => {
+            if (state.page !== Math.ceil(state.data.length / state.take))
             state.page = state.page + 1 
         },
 
         downPage: (state) => {
-            state.page = state.page - 1
+            if (state.page !== 1) {
+                state.page = state.page - 1
+            }
         }
     }
 })

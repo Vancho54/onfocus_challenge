@@ -6,10 +6,10 @@ import taskActions from '../../state/actions/taskActions'
 import { Button } from '@material-ui/core'
 import { KeyboardArrowLeftRounded, KeyboardArrowRightRounded } from '@material-ui/icons'
 
-import { Task } from './task'
-import AddTask from "./addTask"
+import Task from './Task'
+import AddTask from "./AddTask"
 
-export const Tasks = () => {
+const Tasks = () => {
 
     const tasks = useSelector(selectTask);
 
@@ -138,3 +138,5 @@ export const Tasks = () => {
         </div>
     )
 }
+
+export default Tasks;

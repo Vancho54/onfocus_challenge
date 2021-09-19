@@ -9,13 +9,18 @@ import {
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import alertActions from '../../state/actions/alertActions';
 import authActions from '../../state/actions/authActions';
+import { selectAlert } from '../../state/features/alertSlice';
 import { selectAuth } from '../../state/features/authSlice';
 
 
 export const Login = (props) => {
 
     const auth = useSelector(selectAuth);
+    const alert = useSelector(selectAlert);
+
+    console.log(alert)
 
     useEffect(() => {
         if (auth) {
@@ -41,13 +46,15 @@ export const Login = (props) => {
     const handleSubmit = event => {
         event.preventDefault()
         if (email === process.env.REACT_APP_USER && password === process.env.REACT_APP_PASS) {
-            localStorage.setItem('token', process.env.REACT_APP_FAKE_TOKEN)
-            authActions.setToken(process.env.REACT_APP_FAKE_TOKEN)
+            authActions.setToken()
+        } else {
+            alertActions.showAlert('Incorrect password or user')
         }
     }
 
     return(
         <div className='mainContainer'>
+            {alert.show ? <div className='error'>{alert.msg}</div> : null}
             <Card className='container'>
                 <CardContent>
                     <form onSubmit={handleSubmit}>
